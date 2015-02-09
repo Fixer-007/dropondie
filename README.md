@@ -1,4 +1,3 @@
-minetest-dropondie
-==================
+Minetest DroponDie Mod
 
-Minecraft-like drop-all-items-on-die mod
+Drops contents of inventory and crafting grid when player dies
