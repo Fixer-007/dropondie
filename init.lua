@@ -2,20 +2,17 @@ local remi = minetest.setting_get("remove_items") or false
 
 local drop = function(pos, itemstack)
 
+	if remi == "true" then return end
+
 	local it = itemstack:take_item(itemstack:get_count())
+	local obj = core.add_item(pos, it)
 
-	if remi == "false" then
-
-		local obj = core.add_item(pos, it)
-
-		if obj then
-
-			obj:setvelocity({x=math.random(-1,1), y=5, z=math.random(-1,1)})
-
-		end
+	if obj then
+		obj:setvelocity({x=math.random(-1,1), y=5, z=math.random(-1,1)})
 	end
 
 	return itemstack
+
 end
 
 minetest.register_on_dieplayer(function(player)
@@ -31,7 +28,7 @@ minetest.register_on_dieplayer(function(player)
 																..math.floor(pos.y)..','
 																..math.floor(pos.z))
 
-	remi = minetest.setting_get("remove_items")
+	remi = minetest.setting_get("remove_items") or false
 
 	local player_inv = player:get_inventory()
 	
