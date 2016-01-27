@@ -39,3 +39,5 @@ minetest.register_on_dieplayer(function(player)
 		player_inv:set_stack("craft", i, nil)
 	end
 end)
+
+print ("[MOD] Drop on Die loaded")
