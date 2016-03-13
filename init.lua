@@ -1,3 +1,7 @@
+
+-- disable bones mod
+bones.enable = false
+
 local remi = minetest.setting_getbool("remove_items") or false
 local crea = minetest.setting_getbool("creative_mode")
 
@@ -21,11 +25,11 @@ local drop = function(pos, itemstack)
 end
 
 minetest.register_on_dieplayer(function(player)
-	
+
 	if crea then
 		return
 	end
-	
+
 	local pos = player:getpos()
 	
 	minetest.chat_send_player(player:get_player_name(),
